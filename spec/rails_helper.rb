@@ -97,4 +97,10 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  def user_logs_in
+    user = User.create(email: "test@test.com", password: BCrypt::Password.create("test"))
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  end
+
 end

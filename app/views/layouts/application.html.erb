@@ -7,9 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <%= yield %>
-</div>
-
+  <div class="container">
+    <% if current_user %>
+    <h1>"Welcome <%= current_user.email %>" <%= button_to "Log Out", logout_path, method: :get %></h1>
+    <% else %>
+      <%= button_to "Sign Up", signup_path, method: :get %>
+    <% end %>
+  </div>
+  <hr/>
+  <% flash.each do |type, message| %>
+    <div class="center-content center-block container alert alert-<%= type %>"><%= message %>
+      <hr>
+  <% end  %>
+  <div class="container">
+    <%= yield %>
+  </div>
 </body>
 </html>
