@@ -1,7 +1,8 @@
 require "rails_helper"
 
-RSpec.describe "can create links", :js => :true do
+RSpec.describe "As an authenticated user", :js => :true do
   scenario "Create a new link" do
+    user_logs_in
     visit "/"
     fill_in "Title:", :with => "Turing"
     fill_in "URL:", :with => "http://turing.io"
