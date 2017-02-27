@@ -20,7 +20,7 @@ class Api::V1::LinksController < ApplicationController
     invalid = @link.valid_link?
 
     if invalid
-      render json: invalid, status: 422
+      render json: invalid.merge!({link: Link.find(params[:id])}), status: 422
     elsif @link.save
       Read.create(link: @link) if just_read
       render json: @link, status: 201

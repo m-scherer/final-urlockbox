@@ -28,8 +28,8 @@ function handleSave() {
       method: 'PUT',
       data: link
     })
-    .then( changeLink.bind($(this)) )
-    .fail( displayFailure )
+    .then( changeLink.bind( $(this)) )
+    .fail( editFailed.bind( $(this)) )
   });
 }
 
@@ -66,4 +66,19 @@ function getTitle(self) {
 
 function getUrl(self) {
   return self.parents('div.link').children('p.link-url');
+}
+
+function editFailed(failureData){
+  var $title = getTitle($(this))
+  var $url = getUrl($(this))
+  var response = JSON.parse(failureData.responseText)
+  var $editButton = $(this)
+                    .parents('div.link')
+                    .children('p.link_buttons')
+                    .children('button.edit-link')
+
+  $('.flash-message').html(response.message);
+  $title.html(response.link.title);
+  $url.html(response.link.url);
+  toggleButtons($(this), $editButton);
 }
