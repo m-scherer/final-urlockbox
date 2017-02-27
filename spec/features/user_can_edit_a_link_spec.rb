@@ -46,7 +46,7 @@ RSpec.describe "As an authenticated user", :js => :true do
     visit root_path
     click_on "Edit"
     find(:css, '.link-title').set("")
-    find(:css, '.link-url').set("example.com")
+    find(:css, '.link-url').set("http://example.com")
     click_on "Save"
 
     within('#links-list') do
