@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <% if current_user %>
-      "Welcome <%= current_user.email %>" <%= button_to "Log Out", logout_path, method: :get %>
+    <h1>"Welcome <%= current_user.email %>" <%= button_to "Log Out", logout_path, method: :get %></h1>
     <% else %>
       <%= button_to "Sign Up", signup_path, method: :get %>
     <% end %>
