@@ -17,6 +17,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'better_errors', group: :development
 gem 'react-rails'
 gem 'sprockets-es6'
+gem 'active_model_serializers', '~> 0.10.0'
 
 # gem 'unicorn'
 

@@ -17,9 +17,13 @@ class Api::V1::LinksController < ApplicationController
     @link = Link.find params[:id]
     @link.assign_attributes link_params
     just_read = @link.read_changed? && @link.read
-    if @link.save
+    invalid = @link.valid_link?
+
+    if invalid
+      render json: invalid.merge!({link: Link.find(params[:id])}), status: 422
+    elsif @link.save
       Read.create(link: @link) if just_read
-      head :no_content
+      render json: @link, status: 201
     else
       render json: @link.errors.full_messages, status: 500
     end
