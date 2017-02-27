@@ -25,9 +25,9 @@ RSpec.describe "As an authenticated user", :js => :true do
     fill_in "URL:", :with => "turing.io"
     click_on "Add Link"
 
-    expect(page).to have_text("Please enter a valid URL")
+    expect(page).to have_text("Invalid URL")
     expect(Link.count).to eq(0)
-    expect(page).to have_text("Turing")
+    expect(page).to_not have_text("Turing")
   end
 
 end

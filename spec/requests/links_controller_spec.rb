@@ -17,7 +17,7 @@ RSpec.describe "Links Controller" do
 
       post '/api/v1/links', params: params
 
-      expect(response.status).to eq(412)
+      expect(response.status).to eq(422)
       expect(Link.count).to eq(0)
     end
   end
