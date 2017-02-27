@@ -10,11 +10,17 @@
 
 <div id="links-list">
   <% @links.each do |link| %>
-    <ul>
-      <li><%= link.title %></li>
-      <li><%= link.url %></li>
-      <li><%= link.read %></li>
-    </ul>
+  <div class='link' data-id='<%= link.id %>' id='link-<%= link.id %>' >
+    <p class='link-title'><%= link.id %></p>
+    <p class='link-title'><%= link.title %></p>
+    <p class='link-url'><%= link.url %></p>
+    <p class='link-read'><%= link.read %></p>
+    <p class="link_buttons">
+      <button class="mark-read">Mark as Read</button>
+      <button class='edit-link'>Edit</button>
+      <button class='delete-link'>Delete</button>
+    </p>
+  </div>
   <% end %>
 </div>
 
