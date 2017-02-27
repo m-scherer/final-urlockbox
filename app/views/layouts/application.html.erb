@@ -15,10 +15,12 @@
     <% end %>
   </div>
   <hr/>
-  <% flash.each do |type, message| %>
-    <div class="center-content center-block container alert alert-<%= type %>"><%= message %>
-      <hr>
-  <% end  %>
+  <div class="flash-message container">
+    <% flash.each do |type, message| %>
+      <%= message %>
+      <% end  %>
+  </div>
+  <br/>
   <div class="container">
     <%= yield %>
   </div>

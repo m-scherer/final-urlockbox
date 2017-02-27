@@ -1,8 +1,12 @@
 class Api::V1::LinksController < ApplicationController
 
   def create
-    @link = Link.new link_params
-    if @link.save
+    @link = Link.new(link_params)
+    invalid = @link.valid_link?
+
+    if invalid
+      render json: invalid, status: 422
+    elsif @link.save
       render json: @link, status: 201
     else
       render json: @link.errors.full_messages, status: 500
@@ -24,6 +28,6 @@ class Api::V1::LinksController < ApplicationController
   private
 
   def link_params
-    params.permit(:title, :url, :read)
+    params.permit(:title, :url, :read, :user_id)
   end
 end
