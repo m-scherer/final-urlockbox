@@ -6,4 +6,10 @@ class Link < ApplicationRecord
       .group("links.url")
       .order('count("reads".id) DESC').limit(10)
   }
+
+  def valid_url?
+    uri = URI.parse(self.url)
+    uri.is_a?(URI::HTTP) && !uri.host.nil?
+  end
+
 end
