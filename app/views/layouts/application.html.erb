@@ -15,11 +15,12 @@
     <% end %>
   </div>
   <hr/>
-  <div class="flash-message">
+  <div class="flash-message container">
     <% flash.each do |type, message| %>
       <%= message %>
       <% end  %>
   </div>
+  <br/>
   <div class="container">
     <%= yield %>
   </div>
