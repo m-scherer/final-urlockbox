@@ -18,5 +18,5 @@ function updateStatus(link) {
   $linkDiv = $(this).parents('.link')
 
   $linkDiv.children('p.link-read').html(link.read.toString());
-  $linkDiv.toggleClass('marked-read')
+  $linkDiv.toggleClass('true')
 }
