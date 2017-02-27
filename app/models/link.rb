@@ -7,6 +7,14 @@ class Link < ApplicationRecord
       .order('count("reads".id) DESC').limit(10)
   }
 
+  def valid_link?
+    if !self.title || self.title == ""
+      { message: "Missing title" }
+    elsif !valid_url?
+      { message: "Invalid URL" }
+    end
+  end
+
   def valid_url?
     uri = URI.parse(self.url)
     uri.is_a?(URI::HTTP) && !uri.host.nil?
