@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
   belongs_to :user
+  has_many :reads, dependent: :delete_all
   scope :hot, -> {
     select('links.url as url')
       .joins('join reads on reads.link_id = links.id')
