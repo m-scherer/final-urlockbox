@@ -7,6 +7,12 @@
   </label>
   <input type="submit" value="Add Link" id="submit-link" data-user-id="<%= current_user.id %>">
 </form>
+<h3>Filters:</h3>
+<form id="filter">
+  <label>By text:
+    <input id="link-filter">
+  </label>
+</form>
 
 <div id="links-list">
   <% @links.each do |link| %>

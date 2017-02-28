@@ -6,7 +6,7 @@ $(document).ready(function(){
     var $this = $(this);
     var linkId = $this.parents('.link').data('id');
     sendUpdate(true, $this, linkId);
-  })
+  });
 
   $('#links-list').on('click', 'button.mark-unread', function() {
     var $this = $(this);
