@@ -31,7 +31,10 @@ function updateStatus(link) {
 
   $linkDiv.children('p.link-read').html(link.read.toString());
   $linkDiv.toggleClass('true')
-  createHotRead(link.url)
+
+  if (link.read) {
+    createHotRead(link.url)
+  }
 }
 
 function toggleStatusButtons() {
