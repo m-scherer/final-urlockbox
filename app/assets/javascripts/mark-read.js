@@ -46,7 +46,7 @@ function toggleStatusButtons() {
 function createHotRead(url) {
   var data = {url: url}
   $.ajax({
-    url: 'http://localhost:3001/api/v1/hot_links',
+    url: 'https://serene-shore-26911.herokuapp.com/api/v1/hot_links',
     method: 'POST',
     data: data
   });
