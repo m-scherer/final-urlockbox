@@ -33,7 +33,7 @@ function renderLink(link){
 
 function hideButtons(link) {
   $(`div#link-${link.id}`).children('p.link_buttons').children('.mark-unread').hide();
-  $(`div#link-${link.id}`).children('p.link_buttons').children('.save-edit-link').hide()
+  $(`div#link-${link.id}`).children('p.link_buttons').children('.save-edit-link').hide();
 }
 
 function linkHTML(link) {

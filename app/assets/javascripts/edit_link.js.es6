@@ -4,7 +4,7 @@ $(document).ready(function(){
 });
 
 function handleEdit() {
-  $('.edit-link').on('click', function() {
+  $('#links-list').on('click', 'button.edit-link',function() {
     var $title = getTitle($(this))
     var $url = getUrl($(this))
     var $saveButton = $(this)
@@ -19,7 +19,7 @@ function handleEdit() {
 }
 
 function handleSave() {
-  $('.save-edit-link').on('click', function() {
+  $('#links-list').on('click', '.save-edit-link',function() {
     var link = getLinkEditData($(this));
     var $linkId = $(this).parents('div.link').data('id')
 
