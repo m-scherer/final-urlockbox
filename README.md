@@ -62,5 +62,3 @@ On a single result:
   3. Edit Url
 
 *Result: Changes will be persisted without refresh*
-
-**Delete does not currently work but has been left as part of the assessment skeleton**
