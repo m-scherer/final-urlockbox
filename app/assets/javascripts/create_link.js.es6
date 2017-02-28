@@ -28,11 +28,12 @@ function renderLink(link){
   $("#links-list").prepend( linkHTML(link) )
 
   clearLink();
-  hideUnreadButton(link);
+  hideButtons(link);
 }
 
-function hideUnreadButton(link) {
-  $(`div#link-${link.id}`).children('p.link_buttons').children('.mark-unread').hide()
+function hideButtons(link) {
+  $(`div#link-${link.id}`).children('p.link_buttons').children('.mark-unread').hide();
+  $(`div#link-${link.id}`).children('p.link_buttons').children('.save-edit-link').hide()
 }
 
 function linkHTML(link) {
@@ -48,7 +49,7 @@ function linkHTML(link) {
               <p class="link_buttons">
                 <button class="mark-read">Mark as Read</button>
                 <button class="mark-unread">Mark Unread</button>
-                <button class='save-edit-link' style='display:none'>Save</button>
+                <button class='save-edit-link'>Save</button>
                 <button class='edit-link'>Edit</button>
               </p>
             </div>`
