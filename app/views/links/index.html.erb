@@ -17,7 +17,14 @@
     <p class='link-url'><%= link.url %></p>
     <p class='link-read'><%= link.read %></p>
     <p class="link_buttons">
-      <button class="mark-read">Mark as Read</button>
+      <% if link.read %>
+        <button class="mark-read" style='display:none'>Mark as Read</button>
+        <button class="mark-unread">Mark Unread</button>
+      <% else %>
+        <button class="mark-read">Mark as Read</button>
+        <button class="mark-unread" style='display:none'>Mark Unread</button>
+      <% end %>
+
       <button class='save-edit-link' style='display:none'>Save</button>
       <button class='edit-link'>Edit</button>
       <button class='delete-link'>Delete</button>
