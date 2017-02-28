@@ -1,25 +1,66 @@
 # URLockBox
+URLockBox is an app that allows users to manage links.  It interacts with a downstream system [HotReads](https://serene-shore-26911.herokuapp.com/).  These apps were written in 12 hours
 
-## MidModule Assessment
+[Production](https://desolate-coast-51234.herokuapp.com/)
 
-The URLockbox is a starter app for the mid-module assessment for backend engineering module4 at TuringSchool of Software and Design.
+## Installation
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
+1. Clone the repository: `git clone https://github.com/mscherer11/final-urlockbox`
+2. Bundle `bundle install`
+3. Start Rails server: `rails s`
 
-### Testing with PhantomJS using poltergeist
+## Testing
+Testing is conducted via RSpec and can be triggered by running `rspec` in the terminal.  It has been configured with the poltergiest gem to run the phantomjs webdriver via `js: true` in Capybara tests.
 
-The app has phantom.js, a headless webdriver installed for JS testing.
+## Technology
+* Server: Rails -> 5.0.0
+* Client-side: ERB/HTML, JavaScript
+* Database: PostgreSQL
+* Libraries: jQuery
 
-#### Setup
+## Author
+[Michael Scherer](https://github.com/mscherer11)
 
-To set it up you will just need to run `npm install phantomjs -g`. Everything else will be installed with Bundle.
+## Tutorial
+### Sign-up
+1. Navigate to the [root page](https://desolate-coast-51234.herokuapp.com/)
+2. Click [Sign Up](https://desolate-coast-51234.herokuapp.com/signup?)
 
-#### Use
+*Result: Taken to the main page with an option to create links*
 
-You can then write capybara feature tests and add `js: true` tag to each test the has JavaScript.  Your tests will execute and recognize your JavaScript.
+### Adding Links
+1. Add a title in the "Title:" box
+2. Add a url in the "Url:" box
+3. Click "Add link" button
 
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
+*Result: Link should be added to the table below*
 
-#### Your JavaScript
+### Filtering
+* Type in "By Text:" box
 
-The major __GOTCHA__ here is that phantomjs doesn't recognize es6. So if you write es6 you will need to make your file extenstion `.js.es6`. You should see an example test in the `spec/features` directory.
+*Result:* Table should dynamically generate based off keypress
+
+* Click "Only Unread Links"
+
+*Result:* Table should show only those results that are unread
+
+* Click "Only Read Links"
+
+*Result:* Table should show only those results that are read
+
+### Mark Read
+On a single result:
+  1. Click "Mark as Read"
+  2. Navigate to [HotReads](https://serene-shore-26911.herokuapp.com/)
+
+*Result: If that link has been read enough within the last 24 hours, it will be shown on the Hot Reads list, with the number of times it has been read. __On URLockbox__, the card will be greyed out.*
+
+## Edit Link
+On a single result:
+  1. Click "Edit"
+  2. Edit Title
+  3. Edit Url
+
+*Result: Changes will be persisted without refresh*
+
+**Delete does not currently work but has been left as part of the assessment skeleton**
