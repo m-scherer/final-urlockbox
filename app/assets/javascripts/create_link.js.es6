@@ -9,7 +9,6 @@ $(document).ready(function(){
 
 function createLink (event){
   event.preventDefault();
-
   var link = getLinkData();
 
   $.post("/api/v1/links", link)
@@ -33,6 +32,7 @@ function renderLink(link){
 function linkHTML(link) {
 
     return `<div class='link' data-id='${link.id}' id="link-${link.id}">
+              <div class="hotread"></div>
               <p class='link-title'>${ link.title }</p>
               <p class='link-url'>${ link.url }</p>
 
