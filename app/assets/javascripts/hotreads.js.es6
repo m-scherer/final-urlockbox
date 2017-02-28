@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $.ajax({
-    url: 'http://localhost:3001/api/v1/hot_links',
+    url: 'https://serene-shore-26911.herokuapp.com/api/v1/hot_links',
     method: 'GET'
   }).then( getHotLinks )
 });
